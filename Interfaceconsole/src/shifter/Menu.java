@@ -4,6 +4,21 @@ import java.util.Scanner;
 
 public class Menu {
 	
+	public static String cipher(String sentence, int offset) {
+		  String s = "";
+		  for(int i = 0; i < sentence.length(); i++) {
+		    char c = (char)(sentence.charAt(i));
+		    if (c >= 'A' && c <= 'Z') {     
+		      s += (char)((c - 'A' + offset) % 26 + 'A');
+		    } else if (c >= 'a' && c <= 'z') {
+		      s += (char)((c - 'a' + offset) % 26 + 'a');
+		    } else {
+		      s += c;
+		    }
+		  }
+		  return s;
+		}
+	
 	public static void main(String args[]) {
 		
 		Scanner option = new Scanner(System.in);
@@ -54,7 +69,7 @@ public class Menu {
 			msg = encrypt.nextLine();
 			System.out.print("Please enter the encoding key you wish to use:");
 			key = encrypt.nextInt();
-			output= Changer.cipher(msg, key);
+			output= cipher(msg, key);
 			System.out.print(output);
 			encrypting = false;
 		}
@@ -64,9 +79,10 @@ public class Menu {
 			msg = decrypt.nextLine();
 			System.out.print("Please enter the key you wish to try to decode the text with:");
 			key = -1 * decrypt.nextInt();
-			output= Changer.cipher(msg, key);
+			output= cipher(msg, key);
 			System.out.print(output);
 			decrypting = false;
+			
 		}	
 		
 		while(quiting == true){
