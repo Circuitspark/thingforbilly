@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
 	
-	public static String cipher(String sentence, int offset) {
+	private static String cipher(String sentence, int offset) {
 		  String s = "";
 		  for(int i = 0; i < sentence.length(); i++) {
 		    char c = (char)(sentence.charAt(i));
