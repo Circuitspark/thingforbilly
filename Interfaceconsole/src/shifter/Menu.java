@@ -63,7 +63,7 @@ public class Menu {
 			System.out.print("Please enter the text you wish to decode:");
 			msg = decrypt.nextLine();
 			System.out.print("Please enter the key you wish to try to decode the text with:");
-			key = decrypt.nextInt();
+			key = -1 * decrypt.nextInt();
 			output= Changer.cipher(msg, key);
 			System.out.print(output);
 			decrypting = false;
